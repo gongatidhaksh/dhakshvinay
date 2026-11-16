@@ -1,0 +1,71 @@
+:root {
+  color-scheme: light;
+  --ink: #172923;
+  --muted: #485e53;
+  --surface: #fbfdfb;
+  --line: #cdd9d0;
+  --accent: #155c43;
+  --accent-dark: #0b4732;
+  font-family: "Atkinson Hyperlegible Next", "Segoe UI", system-ui, sans-serif;
+  color: var(--ink);
+  background: #edf3ee;
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+h1, h2, p { margin: 0 0 .85rem; overflow-wrap: anywhere; }
+h1 { font-size: clamp(2.15rem, 5vw, 3.5rem); line-height: 1.05; letter-spacing: -.045em; }
+h2, legend { font-size: 1.38rem; font-weight: 700; }
+a { color: var(--accent-dark); text-underline-offset: .22em; }
+.shell { width: min(1100px, calc(100% - 2.5rem)); margin-inline: auto; }
+header { background: var(--surface); border-bottom: 1px solid var(--line); }
+nav, .account, .brand, .card-title { display: flex; align-items: center; gap: .7rem; }
+nav, .card-title { justify-content: space-between; }
+nav { min-height: 4.4rem; padding-block: .65rem; flex-wrap: wrap; }
+.brand { font-weight: 750; text-decoration: none; }
+.brand-mark { background: var(--accent); color: white; border-radius: .55rem; padding: .32rem .6rem; }
+.account { color: var(--muted); max-width: 100%; flex-wrap: wrap; overflow-wrap: anywhere; }
+.account span { min-width: 0; }
+main { padding-block: clamp(2rem, 7vw, 5rem); }
+.entry, .dashboard { display: grid; gap: 1.25rem; align-items: start; }
+.entry { grid-template-columns: 1.2fr 1fr; }
+.dashboard:has(.create) { grid-template-columns: 1.45fr 1fr; }
+.intro, .panel { padding: clamp(1.15rem, 4vw, 2rem); border-radius: 1rem; }
+.intro { background: #123b30; color: #f4fbf5; min-height: 19rem; display: grid; align-content: end; }
+.intro p { color: #d0e6d9; max-width: 32ch; }
+.panel { background: var(--surface); border: 1px solid var(--line); }
+.narrow, .detail, .notice { max-width: 47rem; }
+.heading { margin-bottom: 1.5rem; }
+.heading h1 { margin-top: .5rem; }
+.heading p, .election-card p { white-space: pre-line; color: var(--muted); }
+.fields { display: grid; gap: 1rem; }
+label { display: grid; gap: .4rem; font-weight: 650; }
+input, textarea, button { font: inherit; }
+input, textarea { width: 100%; border: 1px solid #98ada0; background: white; padding: .65rem .75rem; border-radius: .45rem; color: var(--ink); }
+textarea { resize: vertical; }
+button { display: inline-block; justify-self: start; cursor: pointer; border: 1px solid var(--accent); border-radius: .5rem; background: var(--accent); color: white; padding: .65rem 1rem; font-weight: 650; }
+button:hover { background: var(--accent-dark); }
+button.secondary { background: transparent; color: var(--accent-dark); }
+button.secondary:hover { background: #e5f0e7; }
+:focus-visible { outline: 3px solid #a44500; outline-offset: 3px; }
+.hint { color: var(--muted); font-size: .94rem; margin: 0; }
+.fields + .hint { margin-top: 1rem; }
+.cards { padding: 0; margin: 0; list-style: none; display: grid; gap: 1rem; }
+.card-title h2 { margin: 0; }
+.card-title { align-items: start; margin-bottom: .7rem; }
+.detail-link { display: inline-block; margin-top: .65rem; font-weight: 650; }
+.status { display: inline-block; border-radius: 20rem; background: #e7ece7; color: #344942; padding: .25rem .65rem; font-size: .9rem; font-weight: 700; }
+.status.open { background: #d3eddf; color: #174732; }
+.status.closed { background: #e8e7f4; color: #39335f; }
+.controls { border-top: 1px solid var(--line); margin-top: 1.3rem; padding-top: 1rem; }
+fieldset { margin: 0; border: 0; padding: 0; min-inline-size: 0; }
+legend { margin-bottom: .65rem; }
+.choice { display: flex; align-items: center; padding: .8rem; margin-block: .5rem; border: 1px solid var(--line); border-radius: .5rem; }
+.choice:has(input:checked) { background: #e2f2e8; border-color: var(--accent); }
+.choice input { width: auto; margin-inline: 0 .5rem; accent-color: var(--accent); }
+.notice { background: #d8efe0; padding: .85rem 1rem; border-radius: .5rem; }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; border-bottom: 1px solid var(--line); padding: .65rem .35rem; overflow-wrap: anywhere; }
+@media (max-width: 700px) {
+  .entry, .dashboard:has(.create) { grid-template-columns: minmax(0, 1fr); }
+  .intro { min-height: 11rem; }
+}

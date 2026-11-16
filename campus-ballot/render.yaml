@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: online-voting-management
+    runtime: node
+    region: singapore
+    plan: free
+    buildCommand: npm install --omit=dev
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: MYSQL_URL
+        sync: false
+      - key: MYSQL_TLS
+        value: "true"
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
